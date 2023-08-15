@@ -36,67 +36,13 @@ class MainActivity : ComponentActivity() {
         setContent {
             MathitupTheme {
                 // A surface container using the 'background' color from the theme
-                Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
-                    Greeting("Android", "Saqib")
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.background
+                ) {
 
                 }
             }
         }
-    }
-}
-
-
-
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun Greeting(name: String,name2: String, modifier: Modifier = Modifier) {
-    var context = LocalContext.current
-    Row() {
-        Column(Modifier.padding(10.dp)) {
-            Text(
-                text = "Hi $name!",
-                modifier = modifier
-            )
-            SelectionContainer() {
-                Text(
-                    text = "Hi $name2!",
-                    modifier = modifier
-                )
-            }
-
-            var text by remember { mutableStateOf("") }
-            TextField(
-                value = text,
-                onValueChange = { text = it },
-                label = { Text("Name")},
-                placeholder = { Text("Enter your name")}
-            )
-
-            Button(onClick = { makeToast(context, text) }) {
-                Text("Enter")
-            }
-
-        }
-
-    }
-}
-
-private fun makeToast(context: Context, text: String){
-    Toast.makeText(context, "Hello $text", Toast.LENGTH_LONG).show()
-}
-
-@Composable
-fun MyName(name: String, modifier: Modifier = Modifier){
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    MathitupTheme {
-        Greeting("Android", "Saqib")
     }
 }
