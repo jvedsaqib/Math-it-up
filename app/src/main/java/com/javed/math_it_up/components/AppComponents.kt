@@ -1,12 +1,15 @@
 package com.javed.math_it_up.components
 
 
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.filled.VisibilityOff
+import androidx.compose.material3.Checkbox
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -16,6 +19,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
@@ -164,7 +168,30 @@ fun outlinedPasswordTextFieldComponent(labelValue: String, painterResId: String)
             }
 
         },
-        visualTransformation = if(passwordVisible.value) VisualTransformation.None else PasswordVisualTransformation()
+        visualTransformation = if (passwordVisible.value) VisualTransformation.None else PasswordVisualTransformation()
 
     )
+}
+
+
+@Composable
+fun checkBoxComponent(value: String) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .heightIn(56.dp)
+            .padding(16.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        val checkedState = remember {
+            mutableStateOf(false)
+        }
+
+        Checkbox(checked = checkedState.value,
+            onCheckedChange = {
+                checkedState.value = !checkedState.value
+            })
+
+        normalTextComponent(value)
+    }
 }
