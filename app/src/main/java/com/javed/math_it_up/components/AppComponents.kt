@@ -1,6 +1,7 @@
 package com.javed.math_it_up.components
 
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
@@ -9,6 +10,7 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.filled.VisibilityOff
+import androidx.compose.material3.Button
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -195,3 +197,14 @@ fun checkBoxComponent(value: String) {
         normalTextComponent(value)
     }
 }
+
+
+@Composable
+fun signUpButton() {
+    Button(
+        onClick = {  },
+    ) {
+        Text(text = "Sign Up")
+    }
+}
+

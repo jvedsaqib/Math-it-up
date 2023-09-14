@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
@@ -17,6 +18,7 @@ import com.javed.math_it_up.components.headingTextComponent
 import com.javed.math_it_up.components.normalTextComponent
 import com.javed.math_it_up.components.outlinedPasswordTextFieldComponent
 import com.javed.math_it_up.components.outlinedTextFieldComponent
+import com.javed.math_it_up.components.signUpButton
 
 @Composable
 fun signUpScreen() {
@@ -27,7 +29,8 @@ fun signUpScreen() {
             .padding(28.dp)
     ) {
         Column(
-            modifier = Modifier.fillMaxSize()
+            modifier = Modifier.fillMaxSize(),
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
             normalTextComponent(value = "Hey there,")
             headingTextComponent(value = "Create your account")
@@ -53,6 +56,8 @@ fun signUpScreen() {
                 labelValue = "Password",
                 painterResId = R.drawable.baseline_password_24.toString()
             )
+
+            signUpButton()
 
         }
 
